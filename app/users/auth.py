@@ -4,6 +4,7 @@ from fastapi import HTTPException
 from jose import jwt
 from passlib.context import CryptContext
 from pydantic import EmailStr
+
 from app.config import settings
 from app.users.dao import UsersDAO
 

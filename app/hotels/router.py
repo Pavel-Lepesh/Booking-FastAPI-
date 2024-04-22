@@ -1,10 +1,12 @@
-from fastapi import APIRouter, status
-from datetime import date
-from app.hotels.dao import HotelsDAO
-from app.hotels.schemas import SHotels, SHotel
-from fastapi_cache.decorator import cache
 import asyncio
+from datetime import date
 
+from fastapi import APIRouter, status
+from fastapi_cache.decorator import cache
+
+from app.hotels.dao import HotelsDAO
+from app.hotels.schemas import SHotel, SHotels
+from app.services import correct_date_check
 
 router = APIRouter(
     prefix="/hotels",
@@ -13,9 +15,8 @@ router = APIRouter(
 
 
 @router.get("/{location}", status_code=status.HTTP_200_OK)
-@cache(expire=30)
 async def get_hotels(location: str, date_from: date, date_to: date) -> list[SHotels]:
-    await asyncio.sleep(3)
+    correct_date_check(date_from, date_to)
     hotels = await HotelsDAO.find_all(location, date_from, date_to)
     return hotels
 

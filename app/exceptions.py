@@ -41,3 +41,13 @@ class UserIsNotPresentException(BookingException):
 class RoomCannotBeBooked(BookingException):
     status_code = status.HTTP_409_CONFLICT
     detail = "Не осталось свободных номеров"
+
+
+class WrongDatesException(BookingException):
+    status_code = status.HTTP_400_BAD_REQUEST
+    detail = "Введена некорректная или недопустимая дата"
+
+
+class WrongDataForImport(BookingException):
+    status_code = status.HTTP_400_BAD_REQUEST
+    detail = "Переданы некорректные данные"

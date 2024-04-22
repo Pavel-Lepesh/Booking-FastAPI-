@@ -1,0 +1,4 @@
+name;location;services;rooms_quantity;image_id
+Some name 1;Dubai;['towels', 'blankets'];24;7
+Some name 2;Dubai;['towels', 'blankets'];24;8
+Some name 3;Dubai;['towels', 'blankets'];24;9

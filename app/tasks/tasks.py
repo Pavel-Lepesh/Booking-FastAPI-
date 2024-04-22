@@ -1,11 +1,13 @@
+import smtplib
+from pathlib import Path
+from time import sleep
+
+from PIL import Image
+from pydantic import EmailStr
+
 from app.config import settings
 from app.tasks.celery_app import celery_app
-from PIL import Image
-from pathlib import Path
-from pydantic import EmailStr
-import smtplib
 from app.tasks.email_templates import create_booking_confirmation_template
-from time import sleep
 
 
 @celery_app.task

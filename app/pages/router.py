@@ -1,7 +1,7 @@
-from fastapi import APIRouter, Request, Depends
+from fastapi import APIRouter, Depends, Request
 from fastapi.templating import Jinja2Templates
-from app.hotels.router import get_hotels
 
+from app.hotels.router import get_hotels
 
 router = APIRouter(
     prefix="/pages",
